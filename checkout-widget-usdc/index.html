@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThirdPay Checkout</title>
+
+    <script src="https://cdn.statically.io/gh/apium-io/tp-checkout/main/tp-checkout.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+
+        height: 90vh;
+        background-image: radial-gradient(
+          circle farthest-corner at center,
+          rgb(41, 192, 247) 0%,
+          rgba(24, 22, 39, 1) 90%
+        );
+      }
+
+      .checkout-container {
+        max-width: 1000px;
+        margin: 90px auto;
+        padding: 20px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        position: relative;
+        background-color: rgb(31 31 41);
+        box-shadow: 0 0 10px rgba(0, 2, 4, 0.218);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      h1 {
+        text-align: start;
+        color: #f1efef;
+      }
+
+      .order-summary {
+        margin-bottom: 20px;
+        display: flex;
+      }
+
+      .order-summary h2 {
+        color: #d2cccc;
+        margin-bottom: 10px;
+      }
+
+      .order-summary ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .order-summary ul li {
+        padding: 10px;
+
+        display: flex;
+        justify-content: space-between;
+      }
+
+      #thirdpay-container {
+        margin-top: 20px;
+      }
+
+      .left-div {
+        flex: 1;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+        height: 30rem;
+      }
+
+      .right-div {
+        flex: 1;
+        color: #f1efef;
+        padding: 20px 40px 0px 40px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        position: relative;
+      }
+
+      #side-shape {
+        height: 120%;
+        background: rgb(9, 49, 110);
+        background: linear-gradient(
+          90deg,
+          rgba(9, 49, 110, 1) 0%,
+          rgb(1, 182, 254) 43%,
+          rgb(19, 120, 108) 100%
+        );
+        position: absolute;
+        width: 100%;
+        right: 60%;
+        top: 10%;
+        border-radius: 40px;
+        z-index: -0;
+        transform: rotate(-25deg);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="checkout-container">
+      <div id="side-shape"></div>
+
+      <div>
+        <div class="order-summary">
+          <div class="left-div">
+            <div>
+              <img
+                src="assets/afa641d1-2247-44e9-a62a-fa208b80c13d-Photoroom.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="right-div">
+            <h1>Payment Information</h1>
+            <h2>Gaming Headset</h2>
+            <ul>
+              <li>
+                <div>Price</div>
+                <div>$50</div>
+              </li>
+              <li>
+                <div>Shipping</div>
+                <div>$0</div>
+              </li>
+              <li>
+                <div>Tax</div>
+                <div>$0</div>
+              </li>
+              <hr />
+              <li>
+                <div class="total">Total</div>
+                <div class="total">$50</div>
+              </li>
+            </ul>
+            <div id="thirdpay-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      ThirdPay.init({
+        merchantKey:
+          "tpay-b-FGakXtDS_d3ZaTkkvN2Up-1728910287168-8TNR-1gSwV0XSpwXpDkQk",
+        merchantTransactionReference: "your-transaction-reference",
+        amount: 50,
+        container: "thirdpay-container",
+      });
+    </script>
+  </body>
+</html>
